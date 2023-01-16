@@ -12,15 +12,29 @@ class FileChooserWindow(Gtk.ApplicationWindow):
         super().__init__(application=app)
         self.filename = None
         self.progress = 0
+        self.ip = SERVER_IP
 
-        self.set_default_size(350, 250)
-        self.set_title('Simple')
+        self.set_default_size(350, 350)
+        self.set_title('File transfer')
 
         box = Gtk.Box.new(Gtk.Orientation.VERTICAL, 0)
         box.set_margin_start(5)
         box.set_margin_end(5)
         box.set_margin_top(5)
         self.set_child(box)
+
+        label = Gtk.Label(label="Receiver IP address:")
+        box.set_margin_top(20)
+
+        box.append(label)
+
+        self.entry = Gtk.Entry()
+        self.entry.set_text(self.ip)
+        self.entry.set_margin_start(5)
+        self.entry.set_margin_end(5)
+        self.entry.set_margin_top(5)
+        self.entry.set_margin_bottom(35)
+        box.append(self.entry)
 
         self.open_file_dialog = Gtk.FileChooserNative.new(title="Choose a file",
                                                           parent=self,
@@ -42,6 +56,7 @@ class FileChooserWindow(Gtk.ApplicationWindow):
             box.append(button)
 
         self.progressbar = Gtk.ProgressBar()
+        self.progressbar.set_margin_top(10)
         self.progressbar.set_show_text(True)
         self.progressbar.set_text('No file chosen')
         box.append(self.progressbar)
@@ -67,7 +82,7 @@ class FileChooserWindow(Gtk.ApplicationWindow):
             self.progressbar.set_text(os.path.basename(filename))
 
     def on_send_clicked(self, widget):
-        s = Sender(host=SERVER_IP, port=PORT)
+        s = Sender(host=self.entry.get_text(), port=PORT)
         s.connect((s.host, s.port))
         filesize = os.path.getsize(self.filename)
 
