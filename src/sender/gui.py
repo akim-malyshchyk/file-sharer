@@ -3,8 +3,7 @@ import gi
 
 gi.require_version("Gtk", "4.0")
 from gi.repository import Gtk, GLib  # pylint:disable=wrong-import-position
-
-from sender import Sender
+from sock_sender import Sender
 from settings import PORT, SERVER_IP, SEP1
 
 
