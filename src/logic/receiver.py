@@ -22,6 +22,8 @@ class Receiver(socket):
                              unit="B",
                              unit_scale=True,
                              unit_divisor=1024)
+
+        os.makedirs("received", exist_ok=True)
         with open(f'received/{filename}', "wb") as f:
             batch_num = 0
             while True:
