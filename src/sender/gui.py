@@ -4,8 +4,8 @@ import gi
 gi.require_version("Gtk", "4.0")
 from gi.repository import Gtk, GLib  # pylint:disable=wrong-import-position
 
-from src.logic.sender import Sender
-from src.settings import PORT, SERVER_IP, SEP1
+from sender import Sender
+from settings import PORT, SERVER_IP, SEP1
 
 
 class FileChooserWindow(Gtk.ApplicationWindow):

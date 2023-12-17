@@ -3,7 +3,7 @@ import os
 from socket import socket
 
 import tqdm
-from src.settings import SERVER_LOCAL_IP, PORT, BUFFER_SIZE, SEP1, SEP2
+from settings import SERVER_LOCAL_IP, PORT, BUFFER_SIZE, SEP1, SEP2
 
 
 class Receiver(socket):

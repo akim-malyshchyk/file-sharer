@@ -1,6 +1,6 @@
 from socket import socket
 import tqdm
-from src.settings import BUFFER_SIZE
+from settings import BUFFER_SIZE
 
 
 class Sender(socket):
