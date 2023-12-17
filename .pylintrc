@@ -1,0 +1,5 @@
+[MESSAGES CONTROL]
+disable=wrong-import-position,missing-docstring
+
+[FORMAT]
+max-line-length=120

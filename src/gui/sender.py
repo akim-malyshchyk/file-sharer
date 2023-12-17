@@ -1,10 +1,11 @@
 import os.path
 import gi
-from sender import Sender
-from settings import PORT, SERVER_IP, SEP1
 
 gi.require_version("Gtk", "4.0")
-from gi.repository import Gtk, GLib
+from gi.repository import Gtk, GLib  # pylint:disable=wrong-import-position
+
+from src.logic.sender import Sender
+from src.settings import PORT, SERVER_IP, SEP1
 
 
 class FileChooserWindow(Gtk.ApplicationWindow):
@@ -71,7 +72,7 @@ class FileChooserWindow(Gtk.ApplicationWindow):
         self.progressbar.set_fraction(new_value)
         return True
 
-    def on_file_clicked(self, widget):
+    def on_file_clicked(self, widget):  # pylint:disable=unused-argument
         self.open_file_dialog.show()
 
     def open_file_response(self, dialog, response):
@@ -81,7 +82,7 @@ class FileChooserWindow(Gtk.ApplicationWindow):
             self.filename = filename
             self.progressbar.set_text(os.path.basename(filename))
 
-    def on_send_clicked(self, widget):
+    def on_send_clicked(self, widget):  # pylint:disable=unused-argument
         s = Sender(host=self.entry.get_text(), port=PORT)
         s.connect((s.host, s.port))
         filesize = os.path.getsize(self.filename)

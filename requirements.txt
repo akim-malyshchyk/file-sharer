@@ -1,0 +1,4 @@
+tqdm==4.66.1
+PyGObject==3.46.0
+python_dotenv==1.0.0
+pylint==3.0.3
