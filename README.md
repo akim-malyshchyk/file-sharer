@@ -29,7 +29,7 @@ pip install -r requirements.txt
 ```
 After that you should be able to launch `src/sender/gui.py` and `src/receiver/sock_receiver.py`
 
-### How to use
+## How to use
 That's how sender GUI and receiver CLI should look like if initial configuration went fine
 
 <img src=https://github.com/akim-malyshchyk/file-sharer/assets/122870940/5565901a-0d60-44db-bf34-243ea49f59f1 height="300">
